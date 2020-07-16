@@ -1,0 +1,242 @@
+{ZL.Source id="福利院专栏数据源标签" /}<!DOCTYPEHTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>{SField sid="福利院专栏数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="福利院专栏数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="福利院专栏数据源标签" FD="Title" page="0"/}">
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/js/Controls/B_User.js"></script>
+<script src="/dist/js/viewer.min.js" type="text/javascript"></script>
+<link href="/dist/css/viewer.min.css" rel="stylesheet" />
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<div class="noprint">
+{ZL.Label id="全站头部"/}
+</div>
+
+<div class="cont_banner noprint"><span>{ZL.Label id="输出指定ID节点名" NodeID="{SField sid="福利院专栏数据源标签" FD="NodeID" page="0"/}" /}</span></div>
+
+<div class="container margin_top20">
+<div class="mySites noprint">
+<ol class="breadcrumb">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="福利院专栏数据源标签" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">{SField sid="福利院专栏数据源标签" FD="Title" page="0"/}</li>
+</ol>
+</div><!--面包屑导航结束 -->
+<div class="myContent_l">
+<div class="myContent_lt">
+<h1>{SField sid="福利院专栏数据源标签" FD="Title" page="0"/}</h1>
+<div class="myAbbr noprint">
+<span><i class="fa fa-clock-o"></i> 发布时间：{ZL:FormatDate({SField sid="福利院专栏数据源标签" FD="CreateTime" page="0"/},yyyy-MM-dd)/}</span>
+<span><i class="fa fa-user"></i> {SField sid="福利院专栏数据源标签" FD="Inputer" page="0"/}</span>
+<span>浏览次数：<SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="福利院专栏数据源标签" FD="GeneralID" page="0"/}"></SCRIPT></span>
+</div>
+</div>
+<div class="myContent_table" style="margin-top:20px;" style="vertical-align:middle;">
+<table class="table table-bordered">
+<tr class="visible-xs myContent_xstr">
+<td colspan="2">
+<img src="/UploadFiles/{SField sid="福利院专栏数据源标签" FD="pic" page="0"/}" alt="{$SiteName/}" onerror="javascript:this.src='/images/userface/noface.png'" />
+<div class="xq_p">
+<p>（1）本网站及志愿者提供的寻亲服务均是免费。</p>
+<p>（2）如信息需修改、补充等情况，请直接通过本站在线咨询联系网站工作人员。</p>
+<p>（3）本网站不保证登记信息中酬金承诺的有效性，知情人如需要有偿提供线索，请自行与登记人联系确认。</p>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hidden-xs" rowspan="15" style="vertical-align:middle; max-width:300px;" >
+<img src="/UploadFiles/{SField sid="福利院专栏数据源标签" FD="pic" page="0"/}" alt="{$SiteName/}" onerror="javascript:this.src='/images/userface/noface.png'" width="100%" />
+<div class="xq_p">
+<p>（1）本网站及志愿者提供的寻亲服务均是免费。</p>
+<p>（2）如信息需修改、补充等情况，请直接通过本站在线咨询联系网站工作人员。</p>
+<p>（3）本网站不保证登记信息中酬金承诺的有效性，知情人如需要有偿提供线索，请自行与登记人联系确认。</p>
+</div>
+</td>
+<td width="140">福利院（院名）或救助站名称：</td>
+<td>{SField sid="福利院专栏数据源标签" FD="Title" page="0"/}</td>
+</tr>
+<tr>
+<td>寻亲人姓名：</td>
+<td>{SField sid="福利院专栏数据源标签" FD="xqrxm" page="0"/}</td>
+</tr>
+<tr>
+<td>寻亲人年龄段：</td>
+<td>{SField sid="福利院专栏数据源标签" FD="xqrnld" page="0"/}</td>
+</tr>
+<tr>
+<td>性别：</td>
+<td>{SField sid="福利院专栏数据源标签" FD="sex" page="0"/}</td>
+</tr>
+<tr>
+<td>到福利院或救助站日期：</td>
+<td>{ZL:FormatDate({SField sid="福利院专栏数据源标签" FD="dflyhjzzrq" page="0"/},yyyy-MM-dd)/}</td>
+</tr>
+<tr>
+<td rowspan="7">特征描述：</td>
+<td>发旋数量：  {SField sid="福利院专栏数据源标签" FD="fxsl" page="0"/}</td>
+</tr>
+<tr><td>手指螺纹数量：  {SField sid="福利院专栏数据源标签" FD="szlwsl" page="0"/}</td></tr>
+<tr><td>胎记部位：  {SField sid="福利院专栏数据源标签" FD="tjbw" page="0"/}</td></tr>
+<tr><td>伤疤部位：  {SField sid="福利院专栏数据源标签" FD="sbbw" page="0"/}</td></tr>
+<tr><td>痣部位：  {SField sid="福利院专栏数据源标签" FD="zbw" page="0"/}</td></tr>
+<tr><td>酒窝：  {SField sid="福利院专栏数据源标签" FD="jw" page="0"/}</td></tr>
+<tr><td>其他特征：  {SField sid="福利院专栏数据源标签" FD="qttz" page="0"/}</td></tr>
+<tr>
+<td>到福利院或救助站经过：</td>
+<td>{SField sid="福利院专栏数据源标签" FD="dflyhjzzjg" page="0"/}</td>
+</tr>
+<tr>
+<td>其他说明：</td>
+<td>{SField sid="福利院专栏数据源标签" FD="qtym" page="0"/}</td>
+</tr>
+<tr>
+<td>失踪人照片：</td>
+<td class="pics_ul">
+<ul></ul>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_more" data-cmd="more"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+<a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
+<a class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<div class="container myContent_botton noprint">
+<a href="/Guest/Default?CateID=1" class="btn btn-primary btn-lg">反馈线索</a>
+<button type="button" class="btn btn-success btn-lg" onClick="PrintFun();">保存打印</button>
+<button type="button" class="btn btn-info btn-lg" onClick="addfav();">收藏</button>
+</div>
+
+</div>
+</div>
+
+<div class="noprint">
+{ZL.Label id="全站底部"/}
+</div>
+</body>
+</html>
+<script>
+//---------------------手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+$().ready(function(e) {
+    var pics='{SField sid="福利院专栏数据源标签" FD="xqrzpsz" page="0"/}';
+	if(pics!=""){
+		pics=JSON.parse(pics);
+		var str="";
+		for(var i=0;i<pics.length;i++){
+			str+="<li><img src='/UploadFiles/"+pics[i].url+"' class='docs-pictures' alt='"+pics[i].desc+"' onerror='javascript:this.src='/UploadFiles/nopic.gif';' /></li>";
+		}
+		$(".pics_ul ul").html(str);
+	}
+	$(function () {
+	  'use strict';
+	  var console = window.console || { log: function () {} };
+	  var $images = $('.pics_ul');
+	  var handler = function (e) {
+			//console.log(e.type);
+		  };
+	  var options = {
+			// inline: true,
+			url: 'data-original',
+			build: handler,
+			built: handler,
+			show: handler,
+			shown: handler,
+			hide: handler,
+			hidden: handler
+		  };
+	  $images.on({
+		'build.viewer': handler,
+		'built.viewer': handler,
+		'show.viewer': handler,
+		'shown.viewer': handler,
+		'hide.viewer': handler,
+		'hidden.viewer': handler
+	  }).viewer(options);
+	});
+});
+$(window).scroll(function(){
+	if($(window).scrollTop() >0){
+		$(".home_nav").css("background","rgb(201,226,179)");
+	}
+	else{
+		$(".home_nav").css("background","none");
+	}
+});
+function iSearch(){
+	if($(".home_search").is(":hidden")){
+		$(".home_search").fadeIn(250);
+	}else{
+		$(".home_search").fadeOut(250);
+	}
+};
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3) a").html("欢迎您，"+data.UserName+"！");
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(4)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+$(".home_nav .navbar-nav li").mouseover(function(){
+	$(this).addClass("open");
+}).mouseout(function(){
+	$(this).removeClass("open");
+})
+function addfav() {
+	$.post("/API/mod/collect.ashx", {action:"add",favurl:"/Item/{SField sid="福利院专栏数据源标签" FD="GeneralID" page="0"/}.aspx",infoid:"{SField sid="福利院专栏数据源标签" FD="GeneralID" page="0"/}",type:1,title:"{SField sid="福利院专栏数据源标签" FD="Title" page="0"/}"},function(data){
+		var model=JSON.parse(data);
+		if(APIResult.isok(model)){ alert("收藏成功!"); }
+		else{ alert("收藏失败!原因:"+model.retmsg); }
+	});
+}
+function PrintFun(){
+	window.print();
+}
+</script>

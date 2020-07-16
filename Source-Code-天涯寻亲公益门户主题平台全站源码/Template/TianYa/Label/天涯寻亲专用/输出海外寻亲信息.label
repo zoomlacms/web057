@@ -1,0 +1,83 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>366</LabelID>
+    <LabelName>输出海外寻亲信息</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>天涯寻亲专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,28,1,节点ID</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_hwxq ON ZL_CommonModel.ItemID=ZL_C_hwxq.ID</LabelTable>
+    <LabelField>Title,Inputer,CreateTime,sex,birthday,fxsl,szlwsl,tjbw,sbbw,zbw,jw,qttz,qtym,txrxm,fphone,sphone,email,qq,wechat,lxdz,jwwtrxm,	jwwtryxqzgx,jnwtlxrxm</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And Status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>&lt;table class="table table-bordered"&gt;
+&lt;tr&gt;
+&lt;th&gt;标题&lt;/th&gt;
+&lt;th&gt;录入者&lt;/th&gt;
+&lt;th&gt;时间&lt;/th&gt;
+&lt;th&gt;性别&lt;/th&gt;
+&lt;th&gt;出生日期&lt;/th&gt;
+&lt;th&gt;发旋数量&lt;/th&gt;
+&lt;th&gt;手指螺纹数量&lt;/th&gt;
+&lt;th&gt;胎记部位&lt;/th&gt;
+&lt;th&gt;伤疤部位&lt;/th&gt;
+&lt;th&gt;痣部位&lt;/th&gt;
+&lt;th&gt;酒窝&lt;/th&gt;
+&lt;th&gt;单双眼皮&lt;/th&gt;
+&lt;th&gt;其他特征&lt;/th&gt;
+&lt;th&gt;其他说明&lt;/th&gt;
+  &lt;th&gt;境外委托人姓名&lt;/th&gt;
+  &lt;th&gt;境外委托人与寻亲者关系&lt;/th&gt;
+  &lt;th&gt;境内委托联系人姓名&lt;/th&gt;
+&lt;th&gt;填写人姓名&lt;/th&gt;
+&lt;th&gt;手机1&lt;/th&gt;
+&lt;th&gt;手机2&lt;/th&gt;
+&lt;th&gt;邮箱&lt;/th&gt;
+&lt;th&gt;QQ&lt;/th&gt;
+&lt;th&gt;微信&lt;/th&gt;
+&lt;th&gt;联系地址&lt;/th&gt;
+&lt;/tr&gt;
+{Repeate}
+&lt;tr&gt;
+&lt;td&gt;{Field="Title"/}&lt;/td&gt;
+&lt;td&gt;{Field="Inputer"/}&lt;/td&gt;
+&lt;td&gt;{Field="CreateTime"/}&lt;/td&gt;
+&lt;td&gt;{Field="sex"/}&lt;/td&gt;
+&lt;td&gt;{Field="birthday"/}&lt;/td&gt;
+&lt;td&gt;{Field="fxsl"/}&lt;/td&gt;
+&lt;td&gt;{Field="szlwsl"/}&lt;/td&gt;
+&lt;td&gt;{Field="tjbw"/}&lt;/td&gt;
+&lt;td&gt;{Field="sbbw"/}&lt;/td&gt;
+&lt;td&gt;{Field="zbw"/}&lt;/td&gt;
+&lt;td&gt;{Field="jw"/}&lt;/td&gt;
+&lt;td&gt;{Field="qttz"/}&lt;/td&gt;
+&lt;td&gt;{Field="qtym"/}&lt;/td&gt;
+   &lt;th&gt;{Field="jwwtrxm"/}&lt;/th&gt;
+  &lt;th&gt;{Field="	jwwtryxqzgx"/}&lt;/th&gt;
+  &lt;th&gt;{Field="jnwtlxrxm"/}&lt;/th&gt;
+&lt;td&gt;{Field="txrxm"/}&lt;/td&gt;
+&lt;td&gt;{Field="fphone"/}&lt;/td&gt;
+&lt;td&gt;{Field="sphone"/}&lt;/td&gt;
+&lt;td&gt;{Field="email"/}&lt;/td&gt;
+&lt;td&gt;{Field="qq"/}&lt;/td&gt;
+&lt;td&gt;{Field="wechat"/}&lt;/td&gt;
+&lt;td&gt;{Field="lxdz"/}&lt;/td&gt;
+&lt;/tr&gt;{/Repeate}
+&lt;/table&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_hwxq"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

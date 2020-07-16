@@ -1,0 +1,121 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link type="text/css" rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/dist/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/App_Themes/User.css" />
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="/JS/ICMS/ZL_Common.js"></script>
+<script src="/JS/Modal/APIResult.js"></script>
+<script src="/JS/jquery.validate.min.js"></script>
+<script src="/JS/ZL_Regex.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script> 
+<script src="/JS/mvcpage.js"></script>
+<script src="/js/Controls/B_User.js"></script>
+<link href="/Template/TianYa/style/global.css?Version=20150909" rel="stylesheet"/>
+@RenderSection("head",false)</head>
+<body>
+
+@RenderSection("content", false)
+
+<div class="hidden-xs">
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"全站底部\"/}"))
+</div>
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"微信弹出菜单\"/}"))
+
+
+<div>@RenderSection("script", false)</div>
+</body>
+</html>
+<script>
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3) a").html("欢迎您，"+data.UserName+"！");
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(4)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+function iSearch(){
+	if($(".home_search").is(":hidden")){
+		$(".home_search").fadeIn(250);
+	}else{
+		$(".home_search").fadeOut(250);
+	}
+};
+$(".home_nav .navbar-nav li").mouseover(function(){
+	$(this).addClass("open");
+}).mouseout(function(){
+	$(this).removeClass("open");
+})
+
+    $(function (e) {
+        //var filter = "input[type=text][id]:not(#key):visible:first";
+        //if ($(filter).length > 0) {
+        //    $(filter).focus();
+        //}
+        var curban = $("#pageflag").attr("data-ban");
+        var curnav = $("#pageflag").attr("data-nav");
+        $("#bs-example-navbar-collapse-1 li").removeClass("active");
+        $("#u_" + curban).addClass("active");
+        $("#nav_" + curnav).addClass("active");
+        if (curnav == "edu") {
+            $(".u_left_menu").show();
+        }
+        $(".user_leftd li a.u_left_head").click(function (e) {
+            if ($(this).parent().find(".user_l_ulin").css("display") == "none")
+                $(this).parent().find(".user_l_ulin").slideDown();
+            else
+                $(this).parent().find(".user_l_ulin").slideUp();
+            window.localStorage.User_Default_left = $(this).parent().attr("id");
+        })
+    });
+    $("#mimenu_btn").click(function (e) {
+        if ($(".user_mimenu_left").width() > 0) {
+            $(".user_mimenu_left ul").fadeOut(100);
+            $(".user_mimenu_left").animate({ width: 0 }, 200);
+        }
+        else {
+            $(".user_mimenu_left").animate({ width: 150 }, 300);
+            $(".user_mimenu_left ul").fadeIn();
+        }
+    });
+    //会员搜索
+    $("#sub_btn").click(function (e) {
+        if ($("#key").val() == "")
+            alert("搜索关键字为空!");
+        else
+            window.location = "/User/Common/SearchResult?key=" + escape($("#key").val());
+    });
+    //搜索回车事件
+    function IsEnter(obj) {
+        if (event.keyCode == 13) {
+            $("#sub_btn").click(); return false;
+        }
+    }
+    $(".u_left_control").click(function (e) {
+        if ($(".u_left_menu").width() > 0) {
+            $(".u_left_menu").animate({ width: 0 }, 200);
+        }
+        else {
+            $(".u_left_menu").animate({ width: 200 }, 300);
+        }
+    })
+</script>

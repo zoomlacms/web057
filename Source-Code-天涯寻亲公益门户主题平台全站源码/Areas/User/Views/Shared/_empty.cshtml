@@ -1,0 +1,73 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link type="text/css" rel="stylesheet" href="/dist/css/weui.min.css" />
+<link type="text/css" rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/dist/css/font-awesome.min.css" />
+<link type="text/css" rel="stylesheet" href="/App_Themes/control.css" />
+<link type="text/css" rel="stylesheet" href="/App_Themes/User.css" />
+<link type="text/css" rel="stylesheet" href="/Template/TianYa/style/global.css" />
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="/JS/jquery.validate.min.js"></script>
+<script src="/JS/ZL_Regex.js"></script>
+<script src="/JS/ICMS/ZL_Common.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/js/Controls/B_User.js"></script>
+<style>
+.home_nav { background:#c9e2b3;}
+</style>
+@RenderSection("head")
+</head>
+<body>
+<div class="hidden-xs">
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"全站头部\"/}"))
+<div class="u_fix_height"></div>
+</div>
+@RenderSection("content")
+@RenderSection("script")
+
+<div class="hidden-xs">
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"全站底部\"/}"))
+</div>
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"微信弹出菜单\"/}"))
+</body>
+</html>
+<script>
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3) a").html("欢迎您，"+data.UserName+"！");
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(4)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+function iSearch(){
+	if($(".home_search").is(":hidden")){
+		$(".home_search").fadeIn(250);
+	}else{
+		$(".home_search").fadeOut(250);
+	}
+};
+$(".home_nav .navbar-nav li").mouseover(function(){
+	$(this).addClass("open");
+}).mouseout(function(){
+	$(this).removeClass("open");
+})
+</script>

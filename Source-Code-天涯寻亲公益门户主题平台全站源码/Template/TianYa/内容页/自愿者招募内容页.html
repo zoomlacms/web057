@@ -1,0 +1,64 @@
+﻿{ZL.Source id="文章模型数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="文章模型数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="文章模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="文章模型数据源标签" FD="Title" page="0"/}">
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/js/Controls/B_User.js"></script>
+</head>
+<style>
+p { margin-bottom:0;}
+p img { width:100%;}
+</style>
+<body>
+<div class="visible-lg">
+{ZL.Label id="全站头部"/}
+</div>
+<div class="container">
+{SField sid="文章模型数据源标签" FD="content" page="0"/}
+</div>
+
+<div class="visible-lg">
+{ZL.Label id="全站底部"/}
+</div>
+<div class="visible-xs">
+<div class="text-center">
+<a href="/"><img src="{$LogoUrl/}" alt="{$SiteName/}" style="width:50%;"/></a>
+</div>
+</div>
+</body>
+</html>
+<script>
+function iSearch(){
+	if($(".home_search").is(":hidden")){
+		$(".home_search").fadeIn(250);
+	}else{
+		$(".home_search").fadeOut(250);
+	}
+};
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3) a").html("欢迎您，"+data.UserName+"！");
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(4)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+$(".home_nav .navbar-nav li").mouseover(function(){
+	$(this).addClass("open");
+}).mouseout(function(){
+	$(this).removeClass("open");
+})
+</script>

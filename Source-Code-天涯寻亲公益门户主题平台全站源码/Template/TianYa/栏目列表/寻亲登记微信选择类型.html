@@ -1,0 +1,240 @@
+{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>寻亲登记_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="/dist/css/weui.min.css" rel="stylesheet" />
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/Controls/B_User.js"></script>
+</head>
+<body class="home_body">
+{ZL.Label id="全站头部"/}
+
+<div class="container-fulid con_banner">
+<h2>刻骨铭心的爱源自微不足道的细节……</h2>
+</div>
+<!--banner结束-->
+
+<div class="container margin_top20">
+<div class="mySites">
+<ol class="breadcrumb" style="margin-bottom:0;">
+<li><a href="/">首页</a><span class="divider"></span></li>
+<li><a href="/Class_15/NodeNews.aspx">寻亲登记</a></li>
+<li class="active">选择类型</li>
+</ol>
+</div>
+
+<div class="con_search hidden-xs">
+<form action="/Class_15/Default.aspx" method="get" onsubmit="return validateForm();">
+<div class="row">
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>寻找类型</span></div>
+<div class="media-body">
+<select class="form-control" name="node">
+<option value="">请选择类型</option>
+<option value="2">家寻亲人</option>
+<option value="3">亲人寻家</option>
+<option value="18">流浪乞讨</option>
+<option value="1">其它寻人</option>
+<option value="5">海外寻亲</option>
+<option value="28">紧急寻人</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>性别</span></div>
+<div class="media-body">
+<select class="form-control" name="sex">
+<option value="">请选择性别</option>
+<option value="男">男</option>
+<option value="女">女</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>标题</span></div>
+<div class="media-body">
+<input type="text" class="form-control" name="t" placeholder="请输入标题关键字，如姓名" value="{$GetUrldecode({$GetRequest(t)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>特征</span></div>
+<div class="media-body">
+<input type="text" class="form-control" name="z" placeholder="请输入特征关键字，如瘦小" value="{$GetUrldecode({$GetRequest(z)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>失踪开始时间</span></div>
+<div class="media-body">
+<input type="text" class="form-control" id="ssdate" name="ssdate" placeholder="请输入失踪开始时间" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'sedate\')}',dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$GetUrldecode({$GetRequest(ssdate)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>失踪结束时间</span></div>
+<div class="media-body">
+<input type="text" class="form-control" id="sedate" name="sedate" placeholder="请输入失踪结束时间" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'ssdate\')}',dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$GetUrldecode({$GetRequest(sedate)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>出生开始时间</span></div>
+<div class="media-body">
+<input type="text" class="form-control" id="csdate" name="csdate" placeholder="请输入出生开始时间" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'cedate\')}',dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$GetUrldecode({$GetRequest(csdate)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>出生结束时间</span></div>
+<div class="media-body">
+<input type="text" class="form-control" id="cedate" name="cedate" placeholder="请输入出生结束时间" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'csdate\')}',dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$GetUrldecode({$GetRequest(cedate)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>籍贯</span></div>
+<div class="media-body">
+<select class="form-control" name="j">
+<option value="">请选择籍贯</option>
+<option data-id="1" value="北京">北京</option>
+<option data-id="2" value="上海">上海</option>
+<option data-id="3" value="天津">天津</option>
+<option data-id="4" value="重庆">重庆</option>
+<option data-id="5" value="河北省">河北省</option>
+<option data-id="6" value="江苏省">江苏省</option>
+<option data-id="7" value="安徽省">安徽省</option>
+<option data-id="51" value="福建省">福建省</option>
+<option data-id="61" value="甘肃省">甘肃省</option>
+<option data-id="77" value="广东省">广东省</option>
+<option data-id="101" value="广西省">广西省</option>
+<option data-id="116" value="贵州省">贵州省</option>
+<option data-id="125" value="海南省">海南省</option>
+<option data-id="156" value="河南省">河南省</option>
+<option data-id="175" value="黑龙江">黑龙江</option>
+<option data-id="189" value="湖北省">湖北省</option>
+<option data-id="207" value="湖南省">湖南省</option>
+<option data-id="221" value="吉林省">吉林省</option>
+<option data-id="230" value="江西省">江西省</option>
+<option data-id="242" value="辽宁省">辽宁省</option>
+<option data-id="257" value="内蒙古">内蒙古</option>
+<option data-id="271" value="宁夏">宁夏</option>
+<option data-id="276" value="青海省">青海省</option>
+<option data-id="284" value="山东省">山东省</option>
+<option data-id="302" value="山西省">山西省</option>
+<option data-id="314" value="陕西省">陕西省</option>
+<option data-id="326" value="四川省">四川省</option>
+<option data-id="349" value="西藏">西藏</option>
+<option data-id="357" value="新疆">新疆</option>
+<option data-id="374" value="浙江省">浙江省</option>
+<option data-id="3219" value="云南省">云南省</option>
+</select>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+
+<div class="con_search_b">
+<button type="submit" class="btn btn-danger"><i class="fa fa-search"></i> 搜索</button>
+</div>
+</form>
+</div>
+
+<div class="con_sel">
+<div class="row padding5">
+<div class="col-lg-4 col-sm-4 col-md-4 col-xs-6 padding10">
+<div class="con_sel_c"><a href="/User/Content/AddContent?NodeID=28&ModelID=51"><span><i class="fa fa-star"></i> 紧急寻人</span></a></div>
+</div>
+<div class="col-lg-4 col-sm-4 col-md-4 col-xs-6 padding10">
+<div class="con_sel_c"><a href="/User/Content/AddContent?NodeID=2&ModelID=45"><span><i class="fa fa-child"></i> 家寻亲人</span></a></div>
+</div>
+<div class="col-lg-4 col-sm-4 col-md-4 col-xs-6 padding10">
+<div class="con_sel_c"><a href="/User/Content/AddContent?NodeID=3&ModelID=52"><span><i class="fa fa-home"></i> 亲人寻家</span></a></div>
+</div>
+<div class="col-lg-4 col-sm-4 col-md-4 col-xs-6 padding10">
+<div class="con_sel_c"><a href="/User/Content/AddContent?NodeID=4&ModelID=53"><span><i class="fa fa-heartbeat"></i> 福利院专栏</span></a></div>
+</div>
+<div class="col-lg-4 col-sm-4 col-md-4 col-xs-6 padding10">
+<div class="con_sel_c"><a href="/User/Content/AddContent?NodeID=1&ModelID=56"><span><i class="fa fa-users"></i> 其他寻亲</span></a></div>
+</div>
+<div class="col-lg-4 col-sm-4 col-md-4 col-xs-6 padding10">
+<div class="con_sel_c"><a href="/User/Content/AddContent?NodeID=5&ModelID=54"><span><i class="fa fa-ship"></i> 海外寻亲</span></a></div>
+</div>
+<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 padding10">
+<div class="con_sel_c"><a href="/User/Content/AddContent?NodeID=18&ModelID=55"><span><i class="fa fa-send-o"></i> 爱心拍客</span></a></div>
+</div>
+</div>
+</div>
+</div>
+
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+<script>
+$("#node{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}").addClass("active");
+function iSearch(){
+	if($(".home_search").is(":hidden")){
+		$(".home_search").fadeIn(250);
+	}else{
+		$(".home_search").fadeOut(250);
+	}
+};
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3) a").html("欢迎您，"+data.UserName+"！");
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(4)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+	}
+});
+function validateForm(){
+	var val=$("select[name='node'] option:selected").val();
+	if(val==''){
+		alert("请选择寻找类型！");
+		return false;
+	}
+	else{
+		var str="/Class_"+val+"/Default.aspx"
+		$(".con_search form").attr("action",str);
+		return true;
+	}
+}
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+$(".home_nav .navbar-nav li").mouseover(function(){
+	$(this).addClass("open");
+}).mouseout(function(){
+	$(this).removeClass("open");
+})
+</script>

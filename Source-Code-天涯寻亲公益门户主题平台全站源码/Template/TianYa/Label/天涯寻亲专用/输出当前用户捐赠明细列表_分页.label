@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>349</LabelID>
+    <LabelName>输出当前用户捐赠明细列表_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>天涯寻亲专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_Payment</LabelTable>
+    <LabelField>MoneyTrue,PaymentNum,PayNo,PayTime</LabelField>
+    <LabelWhere> ZL_Payment.UserID='{ZL:GetuserID()/}' And Status=3</LabelWhere>
+    <LabelOrder>ZL_Payment.PayTime DESC</LabelOrder>
+    <LabelContent>&lt;table class="table table-bordered"&gt;
+&lt;tr&gt;
+&lt;th class="hidden-xs"&gt;支付单号&lt;/th&gt;
+&lt;th class="hidden-xs"&gt;订单号&lt;/th&gt;
+&lt;th&gt;捐赠金额&lt;/th&gt;
+&lt;th&gt;捐赠时间&lt;/th&gt;
+&lt;/tr&gt;
+{Repeate}
+&lt;tr&gt;
+&lt;td class="hidden-xs"&gt;{Field="PayNo"/}&lt;/td&gt;
+&lt;td class="hidden-xs"&gt;{Field="PaymentNum"/}&lt;/td&gt;
+&lt;td&gt;{ZL:GetMoney({Field="MoneyTrue"/},2,1)/}&lt;/td&gt;
+&lt;td&gt;{ZL:FormatDate({Field="PayTime"/},yyyy-MM-dd HH:mm:ss)/}&lt;/td&gt;
+&lt;/tr&gt;
+{/Repeate}
+&lt;tr&gt;
+&lt;td colspan="4"&gt;
+{ZL.Page id="响应式列表分页v3"/}
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Payment","tb_s":""}</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

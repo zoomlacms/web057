@@ -1,0 +1,100 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>310</LabelID>
+    <LabelName>全站底部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="home_footer"&gt;
+&lt;div class="container"&gt;
+&lt;div class="row padding5"&gt;
+&lt;div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 padding10"&gt;
+&lt;div class="home_footer_l"&gt;&lt;a href="/"&gt;&lt;img src="{$CssDir/}images/logo.svg" alt="{$SiteName/}" /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 padding10"&gt;
+&lt;div class="home_footer_u"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(13)/}"&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(14)/}"&gt;用户协议&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(15)/}"&gt;新手指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/Guest/"&gt;意见反馈&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(17)/}"&gt;帮助中心&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(17)/}"&gt;网站导航&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 padding10"&gt;
+&lt;div class="home_footer_u"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(21)/}"&gt;寻亲指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Register"&gt;志愿者登记&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(25)/}"&gt;成功案例&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;寻亲统计&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.weibo.com/u/5682502436" target="_blank"&gt;微博&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 padding10"&gt;
+&lt;div class="home_footer_u"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(6)/}"&gt;寻亲故事&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(4)/}"&gt;福利院专栏&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(58)/}"&gt;登记说明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(13)/}"&gt;视频专区&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(26)/}"&gt;寻亲地图&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/index"&gt;论坛&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-4 col-md-3 col-sm-3 col-xs-12 padding10"&gt;
+&lt;div class="home_footer_r"&gt;
+&lt;div class="media"&gt;
+&lt;div class="media-left"&gt;
+&lt;img src="{$CssDir/}images/weixin_code.jpg" alt="微信二维码" /&gt;&lt;br/&gt;
+&lt;span&gt;[关注微信公众号]&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="media-body media-middle"&gt;
+&lt;p&gt;TEL: 18663530789&lt;br/&gt;
+(周一至周五 10:00-19:00)&lt;br/&gt;
+联系邮箱：&lt;a href="mailto:tianyaxunqin@126.com"&gt;tianyaxunqin@126.com&lt;/a&gt;&lt;br/&gt;
+接待QQ群：165069854&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="home_footer_c"&gt;{$Copyright/}&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+$(window).scroll(function(){
+	if($(window).scrollTop() &gt;0){
+		$(".home_nav").css("background","rgba(201,226,179,1)");
+	}
+	else{
+		$(".home_nav").css("background","none");
+	}
+});
+&lt;/script&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,670 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>寻亲登记_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="/dist/css/weui.min.css" rel="stylesheet" />
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/Controls/B_User.js"></script>
+<style>
+.weui-label { width:200px;}
+</style>
+</head>
+<body class="home_body">
+{ZL.Label id="全站头部"/}
+
+<div class="container-fulid con_banner">
+<h2>让爱回家，万家团圆……</h2>
+</div>
+<!--banner结束-->
+
+<div class="container margin_top20">
+<div class="mySites">
+<ol class="breadcrumb" >
+<li><a href="/">首页</a><span class="divider"></span></li>
+<li><a href="/Class_15/NodePage.aspx">寻亲登记</a></li>
+<li><a href="/Class_2/NodePage.aspx">家寻亲人</a></li>
+<li class="active">登记信息</li>
+</ol>
+</div>
+
+<div class="con_search">
+<form action="/Class_15/Default.aspx" method="get" onsubmit="return validateForm();">
+<div class="row">
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>寻找类型</span></div>
+<div class="media-body">
+<select class="form-control" name="node">
+<option value="">请选择类型</option>
+<option value="2">家寻亲人</option>
+<option value="3">亲人寻家</option>
+<option value="18">爱心拍客</option>
+<option value="1">其它寻人</option>
+<option value="5">海外寻亲</option>
+<option value="28">紧急寻人</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>性别</span></div>
+<div class="media-body">
+<select class="form-control" name="sex">
+<option value="">请选择性别</option>
+<option value="男">男</option>
+<option value="女">女</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>标题</span></div>
+<div class="media-body">
+<input type="text" class="form-control" name="t" placeholder="请输入标题关键字，如姓名" value="{$GetUrldecode({$GetRequest(t)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>特征</span></div>
+<div class="media-body">
+<input type="text" class="form-control" name="z" placeholder="请输入特征关键字，如瘦小" value="{$GetUrldecode({$GetRequest(z)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>失踪开始时间</span></div>
+<div class="media-body">
+<input type="text" class="form-control" id="ssdate" name="ssdate" placeholder="请输入失踪开始时间" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'sedate\')}',dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$GetUrldecode({$GetRequest(ssdate)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>失踪结束时间</span></div>
+<div class="media-body">
+<input type="text" class="form-control" id="sedate" name="sedate" placeholder="请输入失踪结束时间" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'ssdate\')}',dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$GetUrldecode({$GetRequest(sedate)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>出生开始时间</span></div>
+<div class="media-body">
+<input type="text" class="form-control" id="csdate" name="csdate" placeholder="请输入出生开始时间" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'cedate\')}',dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$GetUrldecode({$GetRequest(csdate)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>出生结束时间</span></div>
+<div class="media-body">
+<input type="text" class="form-control" id="cedate" name="cedate" placeholder="请输入出生结束时间" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'csdate\')}',dateFmt: 'yyyy-MM-dd HH:mm:ss'})" value="{$GetUrldecode({$GetRequest(cedate)$})$}" />
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 com-xs-12">
+<div class="media">
+<div class="media-left media-middle"><span>籍贯</span></div>
+<div class="media-body">
+<select class="form-control" name="j">
+<option value="">请选择籍贯</option>
+<option data-id="1" value="北京">北京</option>
+<option data-id="2" value="上海">上海</option>
+<option data-id="3" value="天津">天津</option>
+<option data-id="4" value="重庆">重庆</option>
+<option data-id="5" value="河北省">河北省</option>
+<option data-id="6" value="江苏省">江苏省</option>
+<option data-id="7" value="安徽省">安徽省</option>
+<option data-id="51" value="福建省">福建省</option>
+<option data-id="61" value="甘肃省">甘肃省</option>
+<option data-id="77" value="广东省">广东省</option>
+<option data-id="101" value="广西省">广西省</option>
+<option data-id="116" value="贵州省">贵州省</option>
+<option data-id="125" value="海南省">海南省</option>
+<option data-id="156" value="河南省">河南省</option>
+<option data-id="175" value="黑龙江">黑龙江</option>
+<option data-id="189" value="湖北省">湖北省</option>
+<option data-id="207" value="湖南省">湖南省</option>
+<option data-id="221" value="吉林省">吉林省</option>
+<option data-id="230" value="江西省">江西省</option>
+<option data-id="242" value="辽宁省">辽宁省</option>
+<option data-id="257" value="内蒙古">内蒙古</option>
+<option data-id="271" value="宁夏">宁夏</option>
+<option data-id="276" value="青海省">青海省</option>
+<option data-id="284" value="山东省">山东省</option>
+<option data-id="302" value="山西省">山西省</option>
+<option data-id="314" value="陕西省">陕西省</option>
+<option data-id="326" value="四川省">四川省</option>
+<option data-id="349" value="西藏">西藏</option>
+<option data-id="357" value="新疆">新疆</option>
+<option data-id="374" value="浙江省">浙江省</option>
+<option data-id="3219" value="云南省">云南省</option>
+</select>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+
+<div class="con_search_b">
+<button type="submit" class="btn btn-danger"><i class="fa fa-search"></i> 搜索</button>
+</div>
+</form>
+</div>
+
+
+<div class="con_dengji">
+<form name="form7" method="post" action="/PubAction.aspx">
+<input type="hidden" name="PubID" id="PubID" value="7" />
+<input type="hidden" name="PubContentid" id="PubContentid" value="{PubContentid/}" />
+<input type="hidden" name="PubInputer" id="PubInputer" value="{PubInputer/}" />
+<div class="form-group">
+<label for="PubTitle">留言标题：</label>
+<input type="text" class="form-control" id="PubTitle" name="PubTitle" />
+{PubCode/}
+</div>
+<div class="form-group">
+<label for="PubContent">留言内容：</label>
+<textarea class="form-control" name="PubContent" cols="50" rows="10" id="PubContent"></textarea>
+</div>
+<div class="form-group text-center">
+<button type="submit" class="btn btn-default">提交</button>
+<button type="reset" class="btn btn-default">重置</button>
+</div>
+</form>
+<form name="form7" method="post" action="/PubAction.aspx">
+<input type="hidden" name="PubID" id="PubID" value="7" />
+<input type="hidden" name="PubContentid" id="PubContentid" value="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" />
+<input type="hidden" name="PubInputer" id="PubInputer" value="" />
+<input type="hidden" name="PubContent" id="PubContent" value="寻亲登记" />
+<input type="hidden" name="xqlb" id="xqlb" value="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" />
+
+<div class="weui-cells weui-cells_form">
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>失踪人姓名：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" name="PubTitle" id="PubTitle" placeholder="请输入失踪人姓名" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label">失踪人别名(小名)：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" name="szrbm" id="szrbm" placeholder="请填写失踪人别名" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>性别：</label>
+</div>
+<div class="weui-cell__bd">
+<label class="radio-inline"><input type="radio" name="sex" value="男" checked /> 男</label>
+<label class="radio-inline"><input type="radio" name="sex" value="女" /> 女</label>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label">出生日期：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" id="birthday" name="birthday" placeholder="请填写出生日期" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' });" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>失踪日期：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" id="szrq" name="szrq" placeholder="请填写失踪日期" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' });" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>失踪时身高：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请填写失踪时身高，单位厘米" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>是否报案：</label>
+</div>
+<div class="weui-cell__bd">
+<label class="radio-inline"><input type="radio" name="spba" value="是" checked /> 是</label>
+<label class="radio-inline"><input type="radio" name="spba" value="否" /> 否</label>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>失踪人籍贯：</label>
+</div>
+<div class="weui-cell__bd">
+<input type="hidden" name="szrjg" id="txt_szrjg" value="" />
+<iframe id="Drop_szrjg" src="/Common/PPC.aspx?FieldName=szrjg&FValue=&Direction=0" style="border:none;width:100%;height:40px;;" scrolling="no"></iframe>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>失踪地点：</label>
+</div>
+<div class="weui-cell__bd">
+<input type="hidden" name="szdd" id="szdd" value="" />
+<iframe id="Drop_szdd" src="/Common/PPC.aspx?FieldName=szdd&FValue=&Direction=0" style="border:none;width:100%;height:40px;;" scrolling="no"></iframe>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>失踪详细地址：</label>
+</div>
+<div class="weui-cell__bd">
+<input type="text" class="form-control" name="szxxdz" id="txt_szxxdz" value="" placeholder="请填写失踪详细地址" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>发旋数量：</label>
+</div>
+<div class="weui-cell__bd">
+<select class="form-control" name="fxsl">
+<option value="不详">不详</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>手指螺纹数量：</label>
+</div>
+<div class="weui-cell__bd">
+<select class="form-control" name="szlwsl">
+<option value="不详">不详</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>胎记部位：</label>
+</div>
+<div class="weui-cell__bd">
+<select class="form-control" name="tjbw">
+<option value="不详">不详</option>
+<option value="头">头</option>
+<option value="脸">脸</option>
+<option value="颈">颈</option>
+<option value="肩">肩</option>
+<option value="手掌">手掌</option>
+<option value="手腕">手腕</option>
+<option value="手臂">手臂</option>
+<option value="胸">胸</option>
+<option value="腹部">腹部</option>
+<option value="大腿">大腿</option>
+<option value="小腿">小腿</option>
+<option value="脚踝">脚踝</option>
+<option value="脚掌">脚掌</option>
+<option value="其他部位">其他部位</option>
+</select>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>伤疤部位：</label>
+</div>
+<div class="weui-cell__bd">
+<select class="form-control" name="sbbw">
+<option value="不详">不详</option>
+<option value="头">头</option>
+<option value="脸">脸</option>
+<option value="颈">颈</option>
+<option value="肩">肩</option>
+<option value="手掌">手掌</option>
+<option value="手腕">手腕</option>
+<option value="手臂">手臂</option>
+<option value="胸">胸</option>
+<option value="腹部">腹部</option>
+<option value="大腿">大腿</option>
+<option value="小腿">小腿</option>
+<option value="脚踝">脚踝</option>
+<option value="脚掌">脚掌</option>
+<option value="其他部位">其他部位</option>
+</select>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>痣部位：</label>
+</div>
+<div class="weui-cell__bd">
+<select class="form-control" name="zbw">
+<option value="不详">不详</option>
+<option value="头">头</option>
+<option value="脸">脸</option>
+<option value="颈">颈</option>
+<option value="肩">肩</option>
+<option value="手掌">手掌</option>
+<option value="手腕">手腕</option>
+<option value="手臂">手臂</option>
+<option value="胸">胸</option>
+<option value="腹部">腹部</option>
+<option value="大腿">大腿</option>
+<option value="小腿">小腿</option>
+<option value="脚踝">脚踝</option>
+<option value="脚掌">脚掌</option>
+<option value="其他部位">其他部位</option>
+</select>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>酒窝：</label>
+</div>
+<div class="weui-cell__bd">
+<select class="form-control" name="jw">
+<option value="不详">不详</option>
+<option value="无酒窝">无酒窝</option>
+<option value="双酒窝">双酒窝</option>
+<option value="单酒窝">单酒窝</option>
+</select>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>其他特征：</label>
+</div>
+<div class="weui-cell__bd">
+<textarea class="form-control" rows="4" placeholder="请填写失踪人特征描述"></textarea>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>失踪经过：</label>
+</div>
+<div class="weui-cell__bd">
+<textarea class="form-control" rows="4" placeholder="请填写失踪经过"></textarea>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>其他说明：</label>
+</div>
+<div class="weui-cell__bd">
+<textarea class="form-control" rows="4" placeholder="请填写其他说明"></textarea>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>主图：</label>
+</div>
+<div class="weui-cell__bd">
+<input type="text" class="form-control" value="" name="pic" id="txt_pic" />
+<img id="Img_pic" src="" class="preview_img" width="50" height="50" onclick='PopImage("popImg","txt_pic",500, 400);' onerror="this.src='/Images/nopic.gif';" title="点击查看大图" alt="" />
+<iframe id="Upload_pic" src="/Common/ContentFile.aspx?ModelID=45&FieldName=pic&NodeId=2&S=0"  style='border:none;width:100%;height:30px;' scrolling="no"></iframe>
+<div id='popImg' style='display:none;'>
+<div class='ptitle'><span onclick='javascript:document.getElementById("popImg").style.visibility = "hidden";' title='Close' class='ViewPicClo' > &#x00D7; </span>预览图片</div>
+<div id='divImage'><img id='imgView' src='#' alt='预览的图片' onload='AutoSetSize(this, 490, 360);' /></div>
+</div>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>失踪人照片上传：</label>
+</div>
+<div class="weui-cell__bd">
+<ul data-id='txt_szrzpsz' id="ul_szrzpsz" class="preview_img_ul"></ul>
+<div class="clearfix"></div>
+<textarea id="txt_szrzpsz" name="pics" class="form-control" rows="4"></textarea>
+<div class="btn-group">
+<button type='button' class='btn btn-primary' onclick='UpFileDiag({"field":"images","nodeid":2,"inputid":"szrzpsz","name":"szrzpsz","uploaddir":"/UploadFiles/","iswater":"0"});' >批量上传</button>
+<button type='button' class='btn btn-info' onclick='UpFileDiag({"field":"images","nodeid":2,"inputid":"szrzpsz","name":"szrzpsz","uploaddir":"/UploadFiles/","iswater":"0"}, "/Plugins/WebUploader/RemoteImg.aspx");'>远程抓取</button>
+<button type='button' class='btn btn-info' value='' onclick='SelectUppic({"field":"images","nodeid":2,"inputid":"szrzpsz","name":"szrzpsz","uploaddir":"/UploadFiles/","iswater":"0"});'>图片库</button>
+<button type='button' class='btn btn-info' onclick'SortImg({"field":"images","nodeid":2,"inputid":"szrzpsz","name":"szrzpsz","uploaddir":"/UploadFiles/","iswater":"0"})'>组图排序</button>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="weui-cells__title text-center">联系人姓名</div>
+
+<div class="weui-cells weui-cells_form">
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>联系人姓名：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>联系人与失踪人关系：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>填写人姓名：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>填写人与失踪人关系：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>手机1：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>手机2：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>电话：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>邮箱：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>QQ：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>微信：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>联系地址：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label">联系人身份证件图片：</label>
+</div>
+<div class="weui-cell__bd">
+<input type="text" class="form-control" value="" name="lxrsfzjtp" id="txt_lxrsfzjtp" />
+<img id="Img_lxrsfzjtp" src="" class="preview_img" width="50" height="50" onclick='PopImage("popImg","txt_lxrsfzjtp",500, 400);' onerror="this.src='/Images/nopic.gif';" title="点击查看大图" alt="" />
+<iframe id="Upload_lxrsfzjtp" src="/Common/ContentFile.aspx?ModelID=45&FieldName=lxrsfzjtp&NodeId=2&S=0"  style='border:none;width:100%;height:30px;' scrolling="no"></iframe>
+<div id='popImg' style='display:none;'>
+<div class='ptitle'>
+<span onclick='javascript:document.getElementById("popImg").style.visibility = "hidden";' title='Close' class='ViewPicClo' > &#x00D7; </span>预览图片
+</div>
+<div id='divImage'>
+<img id='imgView' src='#' alt='预览的图片' onload='AutoSetSize(this, 490, 360);' />
+</div>
+</div>
+</div>
+</div>
+
+<div class="weui-cell">
+<div class="weui-cell__hd">
+<label class="weui-label"><span style="color:#c00;">*</span>其他联系方式：</label>
+</div>
+<div class="weui-cell__bd">
+<input class="form-control" type="text" placeholder="请输入手机号" />
+</div>
+</div>
+
+</div>
+
+<div class="weui-btn-area">
+<button type="submit" class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">马上提交</button>
+</div>
+</form>
+</div>
+
+</div>
+
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/JS/Common.js"></script>
+<script src="/JS/ZL_Content.js?v=20160514"></script>
+<script>
+function iSearch(){
+	if($(".home_search").is(":hidden")){
+		$(".home_search").fadeIn(250);
+	}else{
+		$(".home_search").fadeOut(250);
+	}
+};
+function validateForm(){
+	var val=$("select[name='node'] option:selected").val();
+	if(val==''){
+		alert("请选择寻找类型！");
+		return false;
+	}
+	else{
+		var str="/Class_"+val+"/Default.aspx"
+		$(".con_search form").attr("action",str);
+		return true;
+	}
+}
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3) a").html("欢迎您，"+data.UserName+"！");
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(4)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+$(".home_nav .navbar-nav li").mouseover(function(){
+	$(this).addClass("open");
+}).mouseout(function(){
+	$(this).removeClass("open");
+})
+</script>

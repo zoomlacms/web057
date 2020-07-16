@@ -1,0 +1,58 @@
+{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>内容管理</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<link rel="stylesheet" href="/App_Themes/V3.css" />
+<script src="/js/Controls/B_User.js"></script>
+</head>
+<body>
+<ul class="nav nav-tabs">
+<li id="sy"><a>所有内容</a></li>
+<li id="gzl"><a>工作流审批</a></li>
+<li id="cg"><a>草稿</a></li>
+<li id="dsh"><a>待审核</a></li>
+<li id="ysh"><a>已审核</a></li>
+<li id="tg"><a>退稿</a></li>
+<li id="tj" class="active"><a>已推荐</a></li>
+</ul>
+{ZL.Label id="输出推荐文章列表" NodeID="{$GetRequest(NodeID)$}" ShowNum="10" /}
+</body>
+</html>
+<script>
+function GetRequest() {   
+   var url = location.search; //获取url中"?"符后的字串   
+   var theRequest = new Object();   
+   if (url.indexOf("?") != -1) {   
+      var str = url.substr(1);   
+      strs = str.split("&");   
+      for(var i = 0; i < strs.length; i ++) {   
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+      }   
+   }   
+   return theRequest;   
+}
+$().ready(function(e) {
+    var Request = new Object();
+    Request = GetRequest();
+    var sy="/Admin/Content/ContentManage.aspx?NodeID="+Request["NodeID"]+"&type=0";
+    var gzl="/Admin/Content/ContentManage.aspx?NodeID="+Request["NodeID"]+"&type=5";
+    var cg="/Admin/Content/ContentManage.aspx?NodeID="+Request["NodeID"]+"&type=1";
+    var dsh="/Admin/Content/ContentManage.aspx?NodeID="+Request["NodeID"]+"&type=2";
+    var ysh="/Admin/Content/ContentManage.aspx?NodeID="+Request["NodeID"]+"&type=3";
+    var tg="/Admin/Content/ContentManage.aspx?NodeID="+Request["NodeID"]+"&type=4";
+    var tj="/Class_15/NodeElite.aspx?NodeID="+Request["NodeID"];
+    $("#sy a").attr("href",sy);
+    $("#gzl a").attr("href",gzl);
+    $("#cg a").attr("href",cg);
+    $("#dsh a").attr("href",dsh);
+    $("#ysh a").attr("href",ysh);
+    $("#tg a").attr("href",tg);
+    $("#tj a").attr("href",tj);
+});
+</script>

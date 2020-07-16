@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>354</LabelID>
+    <LabelName>首页所有用户捐赠明细列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>天涯寻亲专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_Payment LEFT JOIN ZL_User ON ZL_Payment.UserID=ZL_User.UserID</LabelTable>
+    <LabelField>MoneyTrue,PaymentNum,PayNo,PayTime,case PERMISSIONS when '' then UserName when null then UserName else PERMISSIONS end As TrueName</LabelField>
+    <LabelWhere>ZL_Payment.Status=3</LabelWhere>
+    <LabelOrder>ZL_Payment.PayTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;p&gt;{Field="TrueName"/} 在 {ZL:FormatDate({Field="PayTime"/},yyyy-MM-dd)/} 捐赠了{ZL:GetMoney({Field="MoneyTrue"/},2,1)/}&lt;/p&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Payment","tb_s":"ZL_User"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,246 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>天涯寻亲_首页</title>
+<meta name="Keywords" content="天涯寻亲">
+<meta name="Description" content="天涯寻亲">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/JS/jquery-1.11.1.min.js" ></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<link href="/dist/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="/Template/TianYa/style/global.css?Version=20150909" rel="stylesheet"/>
+<script src="/js/Controls/B_User.js"></script>
+</head>
+<body class="login_body">
+<nav class="navbar navbar-default navbar-fixed-top home_nav">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img src="/Template/TianYa/style/images/logo.svg" alt="天涯寻亲" /></a>
+</div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li><a href="/Default.aspx">首页</a></li>
+<li id="node15"><a href="/Class_15/Default.aspx">紧急寻人</a></li>
+<li><a id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">寻亲登记<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="/User/Content/AddRegister?NodeID=2&ModelID=45">家寻亲人</a></li>
+<li><a href="/User/Content/AddRegister?NodeID=3&ModelID=52">亲人寻家</a></li>
+<li><a href="/User/Content/AddRegister?NodeID=4&ModelID=53">福利院专栏</a></li>
+<li><a href="/User/Content/AddRegister?NodeID=5&ModelID=54">海外寻亲</a></li>
+<li><a href="/User/Content/AddRegister?NodeID=1&ModelID=56">其他寻亲</a></li>
+<li><a href="/User/Content/AddRegister?NodeID=28&ModelID=51">紧急寻人</a></li>
+</ul>
+</li>
+<li><a id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">志愿者登记<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+<li><a href="/Item/319.aspx">登记说明</a></li>
+<li><a href="/User/Register">志愿者登记</a></li>
+</ul>
+</li>
+<li id="node6"><a id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">寻亲故事<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+<li><a href="/Class_22/Default.aspx">寻亲指南</a></li>
+<li><a href="/Class_23/Default.aspx">暖心驿站</a></li>
+<li><a href="/Class_24/Default.aspx">寻亲那些事儿</a></li>
+</ul>
+</li>
+<li id="node26"><a href="/Class_26/Default.aspx">失孤地图</a></li>
+<li id="node13"><a id="dropdownMenu4" data-toggle="dropdown" aria-expanded="true">视频专区<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+<li><a href="/Class_19/Default.aspx">让爱回家</a></li>
+<li><a href="/Class_20/Default.aspx">社会关注</a></li>
+</ul>
+</li>
+<li><a href="/Index">论坛</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li style="position:relative;"><a href="javascript:;" onClick="iSearch();"><i class="fa fa-search"></i></a>
+<div class="home_search">
+<form action="/Class_15/Default.aspx" method="get" role="search">
+<input type="hidden" value="2" name="node" />
+<input type="text" class="form-control" name="t" placeholder="查找姓名" />
+<button type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</li>
+<li><a id="dropdownMenu5" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-user"></i><span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="/User/Login">点击登录</a></li>
+<li><a href="/User/Register">点击注册</a></li>
+<li><a href="/User"></a></li>
+<li><a href="javascript:;" onClick="LogoutFun()">退出</a></li>
+</ul>
+</li>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+<!--导航结束-->
+
+
+<div id="carousel-example-generic" class="carousel slide login_banner" data-ride="carousel">
+<!-- Indicators -->
+<ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+</ol>
+
+<!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+<div class="item active login_banner1">
+<div class="carousel-caption">
+<h3>总有一盏明灯照亮回家的孤儿！</h3>
+<p><span>胡玫美</span><a href="index">天涯寻亲论坛版主12年服务失孤家族</a></p>
+</div>
+</div>
+<div class="item login_banner2">
+<div class="carousel-caption">
+<h3>让每一个宝宝都有自己的家！</h3>
+<p><span>关爱行动</span><a href="index">也许就缘于您的一份爱心</a></p>
+</div>
+</div>
+<div class="item login_banner3">
+<div class="carousel-caption">
+<h3>为爱付出-为后代的幸福！</h3>
+<p><span>爱心拍客</span><a href="index">发一条你的的拍客帮助我们</a></p>
+</div>
+</div>
+</div>
+
+<!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+<!--头部轮循区end-->
+
+<div class="login_top">
+</div>
+
+<div class="login_edit">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_list">
+<div class="home_p1"><a href="/PClass?id=8">宝贝回家</a></div>
+<div class="home_bottom">
+<ul>
+
+<li><a href="/Item/324.aspx" title="倪娟" target="_blank" style="">倪娟</a><span class="pull-right">2016-12-09</span></li>
+
+<li><a href="/Item/325.aspx" title="倪小龙娟" target="_blank" style="">倪小龙娟</a><span class="pull-right">2016-12-09</span></li>
+
+<li><a href="/Item/326.aspx" title="胡大测试数据" target="_blank" style="">胡大测试数据</a><span class="pull-right">2016-12-09</span></li>
+
+<li><a href="/Item/323.aspx" title="卫平宏" target="_blank" style="">卫平宏</a><span class="pull-right">2016-12-09</span></li>
+
+<li><a href="/Item/321.aspx" title="王瑞顶" target="_blank" style="">王瑞顶</a><span class="pull-right">2016-12-09</span></li>
+
+<li><a href="/Item/320.aspx" title="胡光华" target="_blank" style="">胡光华</a><span class="pull-right">2016-12-09</span></li>
+
+<li><a href="/Item/33.aspx" title="流浪人" target="_blank" style="">流浪人</a><span class="pull-right">2016-12-03</span></li>
+
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_list">
+<div class="home_p1"><a href="/PClass?id=4">爱心拍客</a></div>
+<div class="home_bottom">
+<ul>
+
+<li><a href="/PItem?id=2" title="爱心，为了下一代人" target="_blank">爱心，为了下一代人</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_list">
+<div class="home_p3"><a href="/PClass?id=6">爱心支持</a></div>
+<div class="home_bottom">
+<div class="home_bm">
+<ul>
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_list">
+<div class="home_p4"><a href="/index">同一片蓝天</a></div>
+<div class="home_lantian">
+<a href="/PItem?ID=6" title="恶魔改善人生路  天使扭转定乾坤"><img src="/Template/TianYa/style/images/img07.jpg" alt="恶魔改善人生路  天使扭转定乾坤" /><span>恶魔改善人生路  天使扭转定乾坤</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="login_bottom  navbar-fixed-bottom"><script src="/js/mobile.js"></script>
+版权所有：Copyright  &copy; 2017 聊城市天涯寻亲志愿者协会 鲁ICP备15028638号-1 联系QQ：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=522393880&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:522393880:41" alt="联系线上QQ客服" title="联系线上QQ客服"/></a>
+ 天涯寻亲接待QQ群：<a href="http://shang.qq.com/wpa/qunwpa?idkey=ff0f5cef37b6d50757ba012bc0daa93f2bd9aa7e2d15ea7ba2b5583453e1c96c" target="_blank"><img title="逐浪CMS开发总群" alt="逐浪CMS开发总群" src="http://pub.idqqimg.com/wpa/images/group.png" border="0"/></a> 联系电话：<a href="tel:18663530789">18663530789</a>，<a href="tel:18763500203">18763500203</a> <a href="/User/">会员快速通道></a>
+ <a href="/Class_17/Default.aspx">网站地图</a>
+ </div>
+<!--login_edit end-->
+
+
+</body>
+</html>
+<script>
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3) a").html("欢迎您，"+data.UserName+"！");
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(3)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(4)").show();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+		$(".home_nav .navbar-right .dropdown-menu li:nth-child(1)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+function iSearch(){
+	if($(".home_search").is(":hidden")){
+		$(".home_search").fadeIn(250);
+	}else{
+		$(".home_search").fadeOut(250);
+	}
+};
+$(".home_nav .navbar-nav li").mouseover(function(){
+	$(this).addClass("open");
+}).mouseout(function(){
+	$(this).removeClass("open");
+})
+</script>

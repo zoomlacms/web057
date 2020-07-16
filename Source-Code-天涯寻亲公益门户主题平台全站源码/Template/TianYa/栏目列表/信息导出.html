@@ -1,0 +1,76 @@
+{ZL.Source id="节点栏目信息数据源"/}<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>信息列表</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link href="{$CssDir/}global.css?id={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js"></script>
+<script src="/JS/Label/ZLHelper.js"></script>
+</head> 
+<body>
+
+<div style="max-width:400px;">
+<form action="/Class_2/NodePage.aspx" method="get">
+<div class="input-group">
+<select class="form-control" name="nid" onchange="gradeChange()">
+<option value="">请选择节点</option>
+<option value="28">紧急寻人</option>
+<option value="2">家寻亲人</option>
+<option value="3">亲人寻家</option>
+<option value="4">福利院专栏</option>
+<option value="5">海外寻亲</option>
+<option value="1">其他寻人</option>
+</select>
+<span class="input-group-btn">
+<button class="btn btn-info" type="button"><i class="fa fa-search"></i> 查看信息</button>
+</span>
+</div><!-- /input-group -->
+</form>
+</div>
+
+<div class="outtable">
+<div id="nid28">{ZL.Label id="输出紧急寻人信息" NodeID="{$GetRequest(nid)$}" /}</div>
+<div id="nid2">{ZL.Label id="输出家寻亲人信息" NodeID="{$GetRequest(nid)$}" /}</div>
+<div id="nid3">{ZL.Label id="输出亲人寻家信息" NodeID="{$GetRequest(nid)$}" /}</div>
+<div id="nid4">{ZL.Label id="输出福利院专栏信息" NodeID="{$GetRequest(nid)$}" /}</div>
+<div id="nid5">{ZL.Label id="输出海外寻亲信息" NodeID="{$GetRequest(nid)$}" /}</div>
+<div id="nid1">{ZL.Label id="输出其他寻人信息" NodeID="{$GetRequest(nid)$}" /}</div>
+</div>
+<div>
+<button type="button" class="btn btn-success" onClick="OutToExcel();"><i class="fa fa-file-excel-o"></i> Excel导出</button>
+<button type="button" class="btn btn-success" onClick="OutToWord();"><i class="fa fa-file-word-o"></i> Word导出</button>
+</div>
+
+</body>
+</html>
+<script>
+var nid;
+$().ready(function(e) {
+    nid='{$GetRequest(nid)$}';
+	$("select").val("{$GetRequest(nid)$}");
+	$(".outtable>div").hide();
+	$(".outtable #nid"+nid).show();
+});
+function OutToExcel() {
+	var $html = $(".outtable #nid"+nid);
+	$html.find("td").css("border", "1px solid #ddd");
+	$html.find("th").css("border", "1px solid #ddd");
+	ZLHelper.OutToExcel($html.html(), "信息列表");
+}
+function OutToWord() {
+	var $html = $(".outtable #nid"+nid);
+	$html.find("td").css("border", "1px solid #ddd");
+	$html.find("th").css("border", "1px solid #ddd");
+	ZLHelper.OutToWord($html.html(), "信息列表");
+}
+function gradeChange(){
+	nid=$("select option:selected").val();
+	window.location.href="/Class_17/NodePage.aspx?nid="+nid;
+}
+</script>

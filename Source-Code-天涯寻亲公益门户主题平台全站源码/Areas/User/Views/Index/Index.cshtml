@@ -1,0 +1,134 @@
+﻿@using ZoomLa.BLL;
+@using ZoomLa.Model;
+@using ZoomLa.Model.User;
+@using ZoomLa.Common;
+@model ZoomLa.Model.M_UserInfo
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+    M_PointGrounp pgMod = (M_PointGrounp)ViewBag.pgMod;
+	M_Group groupMod = new M_Group();
+    M_Uinfo basemu = (M_Uinfo)ViewBag.basemu;
+    M_UserInfo mu = new B_User().GetLogin();
+    string truename = mu.UserName;
+    if (!string.IsNullOrEmpty(mu.TrueName))
+    {
+        truename = mu.TrueName;
+    }
+}
+@section head{
+<title>会员中心-@Call.SiteName</title>
+}
+@section content{
+@RenderPage("~/Areas/User/Views/Shared/ASCX/DefaultTop.cshtml")
+<div class="container padding0_xs">
+<div class="media user_top">
+<div class="media-left user_top_t"><a href="/User/Info/Index"><img src="@mu.UserFace" alt="@mu.UserName" onerror="javascript:this.src='/Images/userface/noface.png';" /></a></div>
+<div class="media-body media-middle user_top_p">
+<p>会员名称：@truename<p/>
+<p>会员组：@groupMod.GroupName<a href="#"></a><p/>
+<p>余额：<a href="/user/Info/ConsumeDetail?SType=1" title="点击查看资金明细">@mu.Purse</a><p/>
+<p>积分：@mu.UserExp<p/>
+</div>
+</div>
+</div>
+<div class="container padding0_xs">
+<div  class="user_flist">
+<ul class="user_group">
+<li class="col-xs-4 padding5"><a href="/Class_28/Default.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-heart fa-inverse fa-stack-1x"></i></span><br>紧急发布</a></li>
+<li class="col-xs-4 padding5"><a href="/Class_15/NodeNews.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pencil-square fa-inverse fa-stack-1x"></i></span><br>发布寻亲</a></li>
+<li class="col-xs-4 padding5"><a href="/PayOnline/Donate.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-heart fa-inverse fa-stack-1x"></i></span><br>爱心捐赠</a></li>
+<li class="col-xs-4 padding5"><a href="/Class_2/Default.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-child fa-inverse fa-stack-1x"></i></span><br>家寻亲人</a></li>
+<li class="col-xs-4 padding5"><a href="/Class_3/Default.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-home fa-inverse fa-stack-1x"></i></span><br>亲人寻家</a></li>
+<li class="col-xs-4 padding5"><a href="/Class_18/Default.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-map-pin fa-inverse fa-stack-1x"></i></span><br>流浪乞讨</a></li>
+<li class="col-xs-4 padding5"><a href="/Class_1/Default.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-folder-open fa-inverse fa-stack-1x"></i></span><br>其它寻人</a></li>
+<li class="col-xs-4 padding5"><a href="/Class_5/Default.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-ship fa-inverse fa-stack-1x"></i></span><br>海外寻亲</a></li>
+<li class="col-xs-4 padding5"><a href="/Class_4/Default.aspx"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-heartbeat fa-inverse fa-stack-1x"></i></span><br>福利院专栏</a></li>
+<div class="clearfix"></div>
+</ul>
+<div class="weui-btn-area">
+<a href="/User/Info/UserBase" class="weui-btn weui-btn_primary margin_top20">资料设置</a>
+</div>
+</div>
+</div>
+
+}
+@section script{
+<script>
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+$().ready(function (e) {//菜单颜色配置
+	var colorArr = new Array('#c47f3e', '#669933', '#27a9e3', '#f05033', '#990066', '#9999FF', '#E48632', '#990000', '#22afc2', '#6633FF', '#9900FF', '#1FA67A');
+	var count = $(".user_menu_sub li").length;
+	for (var i = 0; i < count; i++) {
+		$(".user_menu").eq(i).css("background", colorArr[i % 12]);
+	}
+	if ($(".user_menu_sub li").length < 1)
+		$(".u_menu_more").remove();
+})
+$("#mimenu_btn").click(function (e) {
+	if ($(".user_mimenu_left").width() > 0) {
+		$(".user_mimenu_left ul").fadeOut(100);
+		$(".user_mimenu_left").animate({ width: 0 }, 200);
+	}
+	else {
+		$(".user_mimenu_left").animate({ width: 150 }, 300);
+		$(".user_mimenu_left ul").fadeIn();
+	}
+});
+//会员菜单更多显示/隐藏
+$("#more_btn").click(function (e) {
+	if ($(".user_menu_sub").css("display") == "none") {
+		$(".user_menu_sub").slideDown();
+		$(this).find("i").removeClass("fa-angle-double-down");
+		$(this).find("i").addClass("fa-angle-double-up");
+	}
+	else {
+		$(".user_menu_sub").slideUp(200);
+		$(this).find("i").removeClass("fa-angle-double-up");
+		$(this).find("i").addClass("fa-angle-double-down");
+	}
+});
+//会员搜索
+$("#sub_btn").click(function (e) {
+	if ($("#key").val() == "")
+		alert("搜索关键字为空!");
+	else
+		window.location = "/User/Common/SearchResult?key=" + escape($("#key").val());
+});
+//搜索回车事件
+function IsEnter(obj) {
+	if (event.keyCode == 13) {
+		$("#sub_btn").click(); return false;
+	}
+}
+</script>
+}

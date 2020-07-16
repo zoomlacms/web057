@@ -1,0 +1,102 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>309</LabelID>
+    <LabelName>全站头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;nav class="navbar navbar-default navbar-fixed-top home_nav"&gt;
+&lt;div class="container"&gt;
+&lt;!-- Brand and toggle get grouped for better mobile display --&gt;
+&lt;div class="navbar-header"&gt;
+&lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"&gt;
+&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;a class="navbar-brand" href="/"&gt;&lt;img src="{$CssDir/}images/logo.svg" alt="{$SiteName/}" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+&lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
+&lt;ul class="nav navbar-nav"&gt;
+&lt;li&gt;&lt;a href="/"&gt;首页&lt;/a&gt;&lt;/li&gt;
+&lt;li id="node15"&gt;&lt;a href="{ZL:GetNodeLinkUrl(28)/}"&gt;紧急发布&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"&gt;寻亲登记&lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu"&gt;
+&lt;li&gt;&lt;a href="/User/Content/AddRegister?NodeID=28&amp;ModelID=51"&gt;紧急寻人&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Content/AddRegister?NodeID=2&amp;ModelID=45"&gt;家寻亲人&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Content/AddRegister?NodeID=3&amp;ModelID=52"&gt;亲人寻家&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Content/AddRegister?NodeID=4&amp;ModelID=53"&gt;福利院专栏&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Content/AddRegister?NodeID=5&amp;ModelID=54"&gt;海外寻亲&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Content/AddRegister?NodeID=1&amp;ModelID=56"&gt;其他寻亲&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Content/AddRegister?NodeID=18&amp;ModelID=55"&gt;爱心拍客&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true"&gt;志愿者登记&lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(319)/}"&gt;登记说明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Register"&gt;志愿者登记&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li id="node6"&gt;&lt;a id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true"&gt;寻亲故事&lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(22)/}"&gt;寻亲指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(23)/}"&gt;暖心驿站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(24)/}"&gt;寻亲那些事儿&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li id="node26"&gt;&lt;a href="{ZL:GetNodeLinkUrl(26)/}"&gt;失孤地图&lt;/a&gt;&lt;/li&gt;
+&lt;li id="node13"&gt;&lt;a id="dropdownMenu4" data-toggle="dropdown" aria-expanded="true"&gt;视频专区&lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(19)/}"&gt;让爱回家&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(20)/}"&gt;社会关注&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="/PayOnline/Donate.aspx"&gt;爱心捐赠&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/Index"&gt;论坛&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="nav navbar-nav navbar-right"&gt;
+&lt;li style="position:relative;"&gt;&lt;a href="javascript:;" onClick="iSearch();"&gt;&lt;i class="fa fa-search"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;div class="home_search"&gt;
+&lt;form action="/Class_15/Default.aspx" method="get" role="search"&gt;
+&lt;input type="hidden" value="2" name="node" /&gt;
+&lt;input type="text" class="form-control" name="t" placeholder="查找姓名" /&gt;
+&lt;button type="submit"&gt;&lt;i class="fa fa-search"&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a id="dropdownMenu5" data-toggle="dropdown" aria-expanded="true"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu"&gt;
+&lt;li&gt;&lt;a href="/User/Login"&gt;点击登录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Register"&gt;点击注册&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="javascript:;" onClick="LogoutFun()"&gt;退出&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+&lt;/div&gt;&lt;!-- /.container-fluid --&gt;
+&lt;/nav&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

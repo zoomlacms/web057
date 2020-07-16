@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>330</LabelID>
+    <LabelName>输出福利院专栏列表_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>天涯寻亲专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,15,1,节点ID|ShowNum,10,1,显示数|TitleNum,30,1,标题长|SysNum,200,1,简介数|ClassName,col-lg-4 col-md-4 col-sm-4 col-xs-12 padding10,1,Class|sex,,1,性别|Title,,1,标题|qttz,,1,其他特征|ssdate,1900-01-01 00:00:00,1,失踪开始时间|sedate,9999-12-31 23:59:59,1,失踪结束时间|csdate,1900-01-01 00:00:00,1,出生开始时间|cedate,9999-12-31 23:59:59,1,出生结束时间</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_flyzl ON ZL_CommonModel.ItemID=ZL_C_flyzl.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.NodeID,ZL_CommonModel.Title,ZL_C_flyzl.xqrzpsz,ZL_C_flyzl.dflyhjzzrq,ZL_C_flyzl.qttz,ZL_C_flyzl.xqrxm,ZL_C_flyzl.pic</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And Status=99 And ModelID=53 And sex like '%@sex%' And xqrxm like '%@Title%' And qttz like '%@qttz%' And dflyhjzzrq&gt;='@ssdate' And dflyhjzzrq&lt;='@sedate' And birthday&gt;='@csdate' And birthday&lt;='@cedate'</LabelWhere>
+    <LabelOrder>ZL_CommonModel.GeneralID DESC</LabelOrder>
+    <LabelContent>&lt;div class="row padding5"&gt;
+{Repeate}
+&lt;div class="@ClassName"&gt;
+&lt;div class="home_baby_c"&gt;
+&lt;div class="home_baby_ct"&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}" target="{ZL:GetInfoOpen({Field="NodeID"/})/}"&gt;&lt;img src="{ZL:GetPicUrl({Field="pic"/})/}" alt="{Field="Title"/}" onerror="javascript:this.src='/images/userface/noface.png'" /&gt;&lt;/a&gt;
+&lt;div class="home_baby_ctb"&gt;
+&lt;span&gt;到达福利院日期:{ZL:FormatDate({Field="dflyhjzzrq"/},yyyy-MM-dd)/}&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="media"&gt;
+&lt;div class="media-left media-middle"&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="xqrxm"/}" target="{ZL:GetInfoOpen({Field="NodeID"/})/}"&gt;&lt;span&gt;{Field="xqrxm"/}&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="media-body"&gt;
+&lt;p&gt;{ZL:CutText({Field="qttz"/},@SysNum,...)/}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;{/Repeate}
+&lt;/div&gt;
+{ZL.Page id="响应式列表分页v3"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_flyzl"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>
